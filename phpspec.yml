@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Gacha
+        psr4_prefix: Gacha
+        src_path: app
