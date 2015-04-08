@@ -1,4 +1,4 @@
-<?php namespace Gacha;
+<?php namespace Gacha\Model;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

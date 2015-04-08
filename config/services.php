@@ -30,7 +30,7 @@ return [
 	],
 
 	'stripe' => [
-		'model'  => 'Gacha\User',
+		'model'  => 'Gacha\Model\User',
 		'key' => '',
 		'secret' => '',
 	],

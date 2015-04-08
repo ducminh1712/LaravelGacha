@@ -19,7 +19,3 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 	]);
-
-Route::get('/', function()
-	{	return 'Hello World';
-	});

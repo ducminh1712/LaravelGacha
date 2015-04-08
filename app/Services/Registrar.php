@@ -1,6 +1,6 @@
 <?php namespace Gacha\Services;
 
-use Gacha\User;
+use Gacha\Model\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
