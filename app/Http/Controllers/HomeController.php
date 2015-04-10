@@ -30,7 +30,12 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$normal_gacha_description = "Normal Gacha Description";
+		$ex_gacha_description = "Exclusive Gacha Description";
+		$box_gacha_description = "Box Gacha Description";
+		return view('home', ['normal_gacha_description' => $normal_gacha_description,
+							'ex_gacha_description' => $ex_gacha_description,
+							'box_gacha_description' => $box_gacha_description]);
 	}
 
 }
