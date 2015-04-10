@@ -5,28 +5,30 @@
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
+				<ul id="tabs">
+				   <li><a href="#" name="tab1">Normal Gacha</a></li>
+				   <li><a href="#" name="tab2">Expensive Gacha</a></li>
+				   <li><a href="#" name="tab3">Box Gacha</a></li>
+				</ul>
 
-				<div class="panel-body">
-					<div class="common-button" id="normal_gacha">Normal Gacha</div>
-
-					<div class="common-button" id="ex_gacha">Expensive Gacha</div>
-
-					<div class="common-button" id="box_gacha">Box Gacha</div>
-
-					<div id="normal_gacha_area" style="display: none">
-						<div id="normal_gacha_desc">{{ $normal_gacha_description }}</div>
-						<div id="btn_normal_gacha_draw" class="common-button">Draw Normal</div>
+				<div id="content">
+					<div id="tab1">
+						<p>Description</p>
+						<p>{{ $normal_gacha_description }}</p>
+						<a href="#" class="btn btn-blue" id="btn_normal_gacha_draw">Draw Normal</a>
 					</div>
 
-					<div id="ex_gacha_area" style="display: none">
-						<div id="ex_gacha_desc">{{ $ex_gacha_description }}</div>
-						<div id="btn_ex_gacha_draw" class="common-button">Draw Exclusive</div>
+					<div id="tab2">
+						<p>Description</p>
+						<p>{{ $ex_gacha_description }}</p>
+						<a href="#" class="btn btn-blue" id="btn_ex_gacha_draw">Draw Expensive</a>
 					</div>
 
-					<div id="box_gacha_area" style="display: none">
-						<div id="box_gacha_desc">{{ $box_gacha_description }}</div>
-						<div id="btn_box_gacha_draw" class="common-button">Draw Box</div>
+					<div id="tab3">
+						<p>Description</p>
+						<p>{{ $box_gacha_description }}</p>
+						 <a href="#" class="btn btn-blue" id="btn_box_gacha_draw">Draw Box</a>
+
 					</div>
 
 					<div id="gacha_result" style="display: none">
@@ -39,8 +41,25 @@
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
+	$(document).ready(function() {
+	    $("#content").find("[id^='tab']").hide(); // Hide all content
+	    $("#tabs li:first").attr("id","current"); // Activate the first tab
+	    $("#content #tab1").fadeIn(); // Show first tab's content
+	    
+	    $('#tabs a').click(function(e) {
+	        e.preventDefault();
+	        if ($(this).closest("li").attr("id") == "current") { //detection for current tab
+		 		return;
+	        } else {
+				$("#content").find("[id^='tab']").hide(); // Hide all content
+			  	$("#tabs li").attr("id",""); //Reset id's
+			  	$(this).parent().attr("id","current"); // Activate this
+			  	$('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
+				$('#gacha_result').hide();
+			}
+	    });
+	});
 	$('#normal_gacha').click(function () {
 		$.ajax({
 			type: 'post',
