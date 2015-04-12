@@ -2,19 +2,13 @@
 
 use Gacha\Http\Requests;
 use Gacha\Http\Controllers\Controller;
+use Gacha\Model\Gacha;
 
 use Illuminate\Http\Request;
 
-class ExclusiveGachaController extends Controller {
+class ExclusiveGachaController extends GachaController {
 
-	public function index()
-	{
-		return array('name' => 'Steve', 'state' => 'CA');
+	public function __construct() {
+		$this->gacha_id = Gacha::EXCLUSIVE_GACHA_ID;
 	}
-
-	public function draw()
-	{
-		return array('name' => 'Steve', 'state' => 'CA');
-	}
-
 }

@@ -3,18 +3,15 @@
 use Gacha\Http\Requests;
 use Gacha\Http\Controllers\Controller;
 
+use Gacha\Model\Gacha;
+use Gacha\Model\Item;
 use Illuminate\Http\Request;
 
-class NormalGachaController extends Controller {
+use Gacha\Model\GachaProbability;
 
-	public function index()
-	{
-		return array('name' => 'Steve', 'state' => 'CA');
+class NormalGachaController extends GachaController {
+
+	public function __construct() {
+		$this->gacha_id = Gacha::NORMAL_GACHA_ID;
 	}
-
-	public function draw()
-	{
-		return array('name' => 'Steve', 'state' => 'CA');
-	}
-
 }
