@@ -18,6 +18,7 @@ class CreateGachasTable extends Migration {
 			$table->string('name');
 			$table->text('description');
 			$table->integer('cost');
+			$table->integer('reset_interval')->nullable();
 			$table->timestamps();
 		});
 	}
